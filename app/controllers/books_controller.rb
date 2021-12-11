@@ -33,6 +33,7 @@ class BooksController < ApplicationController
   
   def destroy
     @book.destroy
+    render json: @book.id
   end
 
   private
@@ -42,6 +43,6 @@ class BooksController < ApplicationController
 
   
     def book_params
-      params.require(:book).permit(:image, :title, :author, :description, :category_id)
+      params.require(:book).permit(:image, :title, :author, :category, :description)
     end
 end
