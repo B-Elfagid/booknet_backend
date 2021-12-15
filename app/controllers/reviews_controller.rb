@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
 
   def index
-    @reviews = Review.all
+    @reviews = Review.where(book_id:params[:book_id])
     render json: @reviews
   end
 
@@ -15,7 +15,6 @@ class ReviewsController < ApplicationController
  
   def create
     @review = Review.new(review_params)
-
     if @review.save
       render json: @review, status: :created, location: @review
     else
