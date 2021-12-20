@@ -6,6 +6,7 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :author
       t.string :category
       t.text :description
+      t.integer :likes
 
       t.timestamps
     end

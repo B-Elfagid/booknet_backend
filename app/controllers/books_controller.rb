@@ -2,12 +2,13 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :update, :destroy]
 
   def index
+   
     @books = Book.all
     render json: @books
   end
 
  
-  def show
+  def show 
     render json: @book
   end
 
@@ -23,7 +24,9 @@ class BooksController < ApplicationController
 
   
   def update
+    
     if @book.update(book_params)
+    
       render json: @book
     else
       render json: @book.errors, status: :unprocessable_entity
@@ -43,6 +46,6 @@ class BooksController < ApplicationController
 
   
     def book_params
-      params.require(:book).permit(:image, :title, :author, :category, :description)
+      params.require(:book).permit(:image, :title, :author, :category, :description, :likes)
     end
 end

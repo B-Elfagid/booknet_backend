@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 2021_12_02_005623) do
     t.string "author"
     t.string "category"
     t.text "description"
+    t.integer "likes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.text "comment"
-    t.integer "likes"
     t.integer "book_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
